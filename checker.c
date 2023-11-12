@@ -25,6 +25,12 @@ int fchecker(const char *format, func_t f_list[], va_list ap)
 			handle_percent(format + i, f_list, ap, &counter);
 			i++;
 			break;
+		case '\\':
+			if (format[i + 1] == 'n')
+			{
+				_putchar('\n');
+			}
+			break;
 		default:
 			_putchar(format[i]);
 			counter++;
