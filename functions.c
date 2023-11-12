@@ -4,6 +4,7 @@
  * print_char - Prints character
  *
  * @list: list of arguments
+ *
  * Return: Will return the amount of characters printed.
  */
 
@@ -15,7 +16,9 @@ int print_char(va_list list)
 
 /**
  * print_string - Prints a string
+ *
  * @list: list of arguments
+ *
  * Return: Will return the amount of characters printed.
  */
 

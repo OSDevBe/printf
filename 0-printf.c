@@ -10,18 +10,14 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j, tmp, counter = 0;
+	int i = 0, j, tmp, flag = 0, counter = 0;
 	va_list ap;
-
 	func_t f_list[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{NULL, NULL}
 	};
-
 	va_start(ap, format);
-
-	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
 		switch (format[i])
@@ -36,6 +32,20 @@ int _printf(const char *format, ...)
 						counter += tmp;
 					else
 						return (-1);
+					flag = 1;
+				}
+			}
+			if (flag == 0)
+			{
+				switch (format[i + 1])
+				{
+				case '%':
+					_putchar('%');
+					break;
+				default:
+					_putchar('%');
+					_putchar(format[i + 1]);
+					break;
 				}
 			}
 			i++;
