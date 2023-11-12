@@ -48,16 +48,19 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
 {
 	int j, tmp, flag = false;
 
-	for (j = 0; f_list[j].c && (format[1] == f_list[j].c[0]); j++)
+	for (j = 0; f_list[j].c != NULL; j++)
 	{
-		tmp = f_list[j].f(ap);
-		if (tmp != -1)
+		if (format[1] == f_list[j].c[0])
 		{
-			*cnt += tmp;
-			flag = true;
+			tmp = f_list[j].f(ap);
+			if (tmp != -1)
+			{
+				*cnt += tmp;
+				flag = true;
+			}
+			else
+				exit(-1);
 		}
-		else
-			exit(-1);
 	}
 	if (!flag)
 		switch (format[1])
