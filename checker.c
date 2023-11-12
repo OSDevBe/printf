@@ -1,7 +1,9 @@
 #include "main.h"
 
+void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt);
+
 /**
- * fchekcer - check format for symbols
+ * fchecker - check format for symbols
  *
  * @format: arg string
  *
@@ -10,43 +12,17 @@
  * @ap: args of _printf
  *
  * Return: nbr of printed chars
-*/
+ */
 int fchecker(const char *format, func_t f_list[], va_list ap)
 {
-	int i = 0, j, tmp, flag = 0, counter = 0;
+	int i = 0, counter = 0;
 
 	while (format != NULL && format[i] != '\0')
 	{
 		switch (format[i])
 		{
 		case '%':
-			for (j = 0; f_list[j].c != NULL; j++)
-			{
-				if (format[i + 1] == f_list[j].c[0])
-				{
-					tmp = f_list[j].f(ap);
-					if (tmp != -1)
-						counter += tmp;
-					else
-						return (-1);
-					flag = 1;
-				}
-			}
-			if (flag == 0)
-			{
-				switch (format[i + 1])
-				{
-				case '%':
-					_putchar('%');
-					counter++;
-					break;
-				default:
-					_putchar('%');
-					_putchar(format[i + 1]);
-					counter = counter + 2;
-					break;
-				}
-			}
+			handle_percent(format + i, f_list, ap, &counter);
 			i++;
 			break;
 		default:
@@ -57,4 +33,43 @@ int fchecker(const char *format, func_t f_list[], va_list ap)
 		i++;
 	}
 	return (counter);
+}
+
+/**
+ * handle_percent - Handle '%' character in format
+ *
+ * @format: Format string
+ * @f_list: List of functions
+ * @ap: va_list for variable arguments
+ * @cnt: Pointer to the cnt of printed characters
+ */
+
+void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
+{
+	int j, tmp, flag = false;
+
+	for (j = 0; f_list[j].c && (format[1] == f_list[j].c[0]); j++)
+	{
+		tmp = f_list[j].f(ap);
+		if (tmp != -1)
+		{
+			*cnt += tmp;
+			flag = true;
+		}
+		else
+			exit(-1);
+	}
+	if (!flag)
+		switch (format[1])
+		{
+		case '%':
+			_putchar('%');
+			(*cnt)++;
+			break;
+		default:
+			_putchar('%');
+			_putchar(format[1]);
+			*cnt += 2;
+			break;
+		}
 }
