@@ -19,6 +19,7 @@ struct ffunc
 typedef struct ffunc func_t;
 
 int _putchar(char c);
+int fchecker(const char *format, func_t f_list[], va_list ap);
 int _printf(const char *format, ...);
 int print_char(va_list list);
 int print_string(va_list list);
