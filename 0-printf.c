@@ -15,6 +15,9 @@ int _printf(const char *format, ...)
 	func_t f_list[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"u", print_uint},
 		{"m", print_success},
 		{"%", print_percent},
 		{NULL, NULL}};
@@ -25,3 +28,4 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (counter);
 }
+
