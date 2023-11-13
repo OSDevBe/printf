@@ -15,8 +15,8 @@ int _printf(const char *format, ...)
 	func_t f_list[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{NULL, NULL}
-	};
+		{"m", print_success},
+		{NULL, NULL}};
 	va_start(ap, format);
 	counter = fchecker(format, f_list, ap);
 	if (counter == -1)

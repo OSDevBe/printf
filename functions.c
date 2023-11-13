@@ -34,3 +34,22 @@ int print_string(va_list list)
 		_putchar(str[i]);
 	return (i);
 }
+
+/**
+ * print_success - Prints a success for %m
+ *
+ * @list: list of arguments
+ *
+ * Return: Will return the amount of characters printed.
+ */
+
+int print_success(void)
+{
+	int i;
+	char *str;
+
+	str = "Success";
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	return (i);
+}
