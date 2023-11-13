@@ -38,8 +38,6 @@ int print_string(va_list list)
 /**
  * print_success - Prints a success for %m
  *
- * @list: list of arguments
- *
  * Return: Will return the amount of characters printed.
  */
 
