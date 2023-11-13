@@ -72,7 +72,7 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
 				exit(-1);
 		}
 	}
-	if (!flag)
+	if (!flag && format[1] != ' ')
 	{
 		_putchar('%');
 		_putchar(format[1]);
