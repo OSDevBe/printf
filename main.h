@@ -31,4 +31,3 @@ int print_integer(va_list ap);
 int print_uint(va_list ap);
 
 #endif /* _MAIN_H_ */
-

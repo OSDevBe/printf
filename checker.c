@@ -13,6 +13,7 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt);
  *
  * Return: nbr of printed chars
  */
+
 int fchecker(const char *format, func_t f_list[], va_list ap)
 {
 	int i = 0, counter = 0;
@@ -79,4 +80,3 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
 		*cnt += 2;
 	}
 }
-

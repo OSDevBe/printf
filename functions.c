@@ -63,4 +63,3 @@ int print_success(void)
 		_putchar(str[i]);
 	return (i);
 }
-

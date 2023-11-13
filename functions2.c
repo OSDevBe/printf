@@ -69,4 +69,3 @@ int print_uint(va_list ap)
 
 	return (len);
 }
-
