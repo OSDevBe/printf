@@ -22,6 +22,8 @@ int fchecker(const char *format, func_t f_list[], va_list ap)
 		switch (format[i])
 		{
 		case '%':
+			if (format[i + 1] == '\0')
+				exit(-1);
 			handle_percent(format + i, f_list, ap, &counter);
 			i++;
 			break;
@@ -55,8 +57,6 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
 {
 	int j, tmp, flag = false;
 
-	if (format[1] == ' ')
-		exit(-1);
 	for (j = 0; f_list[j].c != NULL; j++)
 	{
 		if (format[1] == f_list[j].c[0])
