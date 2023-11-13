@@ -3,14 +3,14 @@
 /**
  * print_char - Prints character
  *
- * @list: list of arguments
+ * @ap: list of arguments
  *
  * Return: Will return the amount of characters printed.
  */
 
-int print_char(va_list list)
+int print_char(va_list ap)
 {
-	_putchar(va_arg(list, int));
+	_putchar(va_arg(ap, int));
 	return (1);
 }
 
@@ -29,17 +29,17 @@ int print_percent(void)
 /**
  * print_string - Prints a string
  *
- * @list: list of arguments
+ * @ap: list of arguments
  *
  * Return: Will return the amount of characters printed.
  */
 
-int print_string(va_list list)
+int print_string(va_list ap)
 {
 	int i;
 	char *str;
 
-	str = va_arg(list, char *);
+	str = va_arg(ap, char *);
 	if (str == NULL)
 		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)
@@ -63,3 +63,4 @@ int print_success(void)
 		_putchar(str[i]);
 	return (i);
 }
+
