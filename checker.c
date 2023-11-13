@@ -79,3 +79,4 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
 		*cnt += 2;
 	}
 }
+
