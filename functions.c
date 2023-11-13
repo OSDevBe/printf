@@ -15,6 +15,18 @@ int print_char(va_list list)
 }
 
 /**
+ * print_percent - Prints percent
+ *
+ * Return: Will return the amount of characters printed.
+ */
+
+int print_percent(void)
+{
+	_putchar('%');
+	return (1);
+}
+
+/**
  * print_string - Prints a string
  *
  * @list: list of arguments

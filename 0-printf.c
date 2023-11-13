@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 		{"c", print_char},
 		{"s", print_string},
 		{"m", print_success},
+		{"%", print_percent},
 		{NULL, NULL}};
 	va_start(ap, format);
 	counter = fchecker(format, f_list, ap);

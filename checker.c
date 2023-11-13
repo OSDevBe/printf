@@ -66,22 +66,16 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
 			{
 				*cnt += tmp;
 				flag = true;
+				break;
 			}
 			else
 				exit(-1);
 		}
 	}
 	if (!flag)
-		switch (format[1])
-		{
-		case '%':
-			_putchar('%');
-			(*cnt)++;
-			break;
-		default:
-			_putchar('%');
-			_putchar(format[1]);
-			*cnt += 2;
-			break;
-		}
+	{
+		_putchar('%');
+		_putchar(format[1]);
+		*cnt += 2;
+	}
 }
