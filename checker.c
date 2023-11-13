@@ -29,6 +29,7 @@ int fchecker(const char *format, func_t f_list[], va_list ap)
 			if (format[i + 1] == 'n')
 			{
 				_putchar('\n');
+				i++;
 			}
 			break;
 		default:
@@ -54,6 +55,8 @@ void handle_percent(const char *format, func_t f_list[], va_list ap, int *cnt)
 {
 	int j, tmp, flag = false;
 
+	if (format[1] == ' ')
+		exit(-1);
 	for (j = 0; f_list[j].c != NULL; j++)
 	{
 		if (format[1] == f_list[j].c[0])
