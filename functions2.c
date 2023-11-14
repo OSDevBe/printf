@@ -69,3 +69,39 @@ int print_uint(va_list ap)
 
 	return (len);
 }
+
+/**
+ * print_binary - prints binary
+ *
+ * @ap: List of arguments
+ *
+ * Return: Will return the amount of characters printed.
+ */
+
+int print_binary(va_list ap)
+{
+	int i, len = 0, index = 0;
+	unsigned int binary[32];
+	unsigned int num;
+
+	num = va_arg(ap, unsigned int);
+
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	while (num > 0)
+	{
+		binary[index++] = num % 2;
+		num /= 2;
+	}
+	for (i = index - 1; i >= 0; i--)
+	{
+		_putchar('0' + binary[i]);
+		len++;
+	}
+
+	return (len);
+}
+
