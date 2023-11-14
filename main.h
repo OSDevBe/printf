@@ -29,5 +29,7 @@ int print_success(void);
 int print_percent(void);
 int print_integer(va_list ap);
 int print_uint(va_list ap);
+int print_binary(va_list ap);
 
 #endif /* _MAIN_H_ */
+

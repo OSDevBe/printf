@@ -5,3 +5,4 @@ update a file
 update a file
 update Checker.c
 Update Functions.c
+update functions2.c file
