@@ -17,6 +17,7 @@ int _printf(const char *format, ...)
 		{"s", print_string},
 		{"d", print_integer},
 		{"i", print_integer},
+		{"b", print_binary},
 		{"u", print_uint},
 		{"m", print_success},
 		{"%", print_percent},
@@ -28,3 +29,4 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (counter);
 }
+
