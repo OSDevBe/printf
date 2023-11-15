@@ -22,6 +22,10 @@ int _printf(const char *format, ...)
 		{"m", print_success},
 		{"%", print_percent},
 		{NULL, NULL}};
+
+	if (format == NULL)
+		exit(-1);
+
 	va_start(ap, format);
 	counter = fchecker(format, f_list, ap);
 	if (counter == -1)
